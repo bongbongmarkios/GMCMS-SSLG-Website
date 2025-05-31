@@ -12,7 +12,7 @@ body {
 
 /* Container for centering content */
 .container {
-  max-width: 375px; /* iPhone width */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -60,6 +60,7 @@ body {
   margin: 2rem auto;
   width: 100%;
   box-sizing: border-box;
+  max-width: 400px;
 }
 
 /* Form elements */
@@ -106,13 +107,18 @@ a:hover {
   color: #556b2f;
 }
 
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .hero-content h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
 
 .hero-content p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 1.5rem;
 }
 
@@ -154,8 +160,9 @@ a:hover {
 
 /* Officer grid */
 .officer-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   padding: 1rem;
 }
@@ -166,6 +173,8 @@ a:hover {
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(141, 182, 0, 0.3);
   text-align: center;
+  flex: 1 1 200px;
+  max-width: 250px;
 }
 
 .officer-photo {
@@ -207,10 +216,19 @@ a:hover {
   background-color: #729900;
 }
 
-/* Responsive for iPhone SE and similar */
-@media (max-width: 375px) {
-  .officer-grid {
-    grid-template-columns: 1fr;
+/* Responsive for mobile and smaller screens */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .officer-card {
+    max-width: 100%;
+    flex: 1 1 100%;
   }
 
   .about-icons {
