@@ -1,62 +1,95 @@
+/* Base styles */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #ffffff; /* white background */
+  color: #556b2f; /* avocado green text */
   margin: 0;
-  color: #333;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.form-container {
-  background: white;
-  padding: 2.5rem 3rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  width: 350px;
+/* Container for centering content */
+.container {
+  max-width: 375px; /* iPhone width */
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
   text-align: center;
+  text-decoration: none;
+  user-select: none;
+  transition: background-color 0.3s ease;
 }
 
+.primary-btn {
+  background-color: #8db600; /* avocado green */
+  color: white;
+}
+
+.primary-btn:hover {
+  background-color: #729900;
+}
+
+.secondary-btn {
+  background-color: white;
+  color: #8db600;
+  border: 2px solid #8db600;
+}
+
+.secondary-btn:hover {
+  background-color: #f0f8e8;
+}
+
+/* Form container */
+.form-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(141, 182, 0, 0.3);
+  margin: 2rem auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Form elements */
 form {
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
 }
 
 input {
   padding: 12px 15px;
-  margin: 12px 0;
-  border: 1.5px solid #ddd;
+  margin: 10px 0;
+  border: 1.5px solid #8db600;
   border-radius: 8px;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  color: #556b2f;
 }
 
 input:focus {
-  border-color: #2575fc;
   outline: none;
+  border-color: #729900;
 }
 
+/* Buttons inside forms */
 button {
-  padding: 12px;
-  background-color: #2575fc;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1.1rem;
   margin-top: 1rem;
-  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #1a52d1;
-}
-
+/* Links */
 a {
-  color: #2575fc;
+  color: #8db600;
   text-decoration: none;
   font-weight: 600;
 }
@@ -65,101 +98,123 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Dashboard styles */
-.dashboard-container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+/* Hero section */
+.hero-section {
+  background: linear-gradient(135deg, #f0f8e8 0%, #d9e8b8 100%);
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #556b2f;
 }
 
-.dashboard-header {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #2575fc;
-  font-weight: 700;
+.hero-content h1 {
   font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-/* Social login buttons */
-.social-login {
-  margin-top: 1rem;
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-buttons a {
+  margin: 0 0.5rem;
+}
+
+/* About SSLG section */
+.about-sslg {
+  padding: 2rem 1rem;
+  background-color: #f9fbe7;
+  color: #556b2f;
   text-align: center;
 }
 
-.social-btn {
-  padding: 10px 20px;
-  margin: 0 10px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  color: white;
-  transition: background-color 0.3s ease;
+.about-sslg h2 {
+  margin-bottom: 1rem;
 }
 
-.social-btn.google {
-  background-color: #db4437;
+.about-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
-.social-btn.google:hover {
-  background-color: #a3362a;
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 80px;
 }
 
-.social-btn.facebook {
-  background-color: #3b5998;
+.icon-item img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.5rem;
 }
 
-.social-btn.facebook:hover {
-  background-color: #2d4373;
-}
-
+/* Officer grid */
 .officer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .officer-card {
-  background: #f7f9ff;
-  border-radius: 10px;
+  background-color: #f0f8e8;
+  border-radius: 12px;
   padding: 1rem;
-  box-shadow: 0 4px 12px rgba(37, 117, 252, 0.15);
+  box-shadow: 0 2px 8px rgba(141, 182, 0, 0.3);
   text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.officer-card:hover {
-  transform: translateY(-5px);
 }
 
 .officer-photo {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 1rem;
-  border: 3px solid #2575fc;
+  margin-bottom: 0.75rem;
+  border: 2px solid #8db600;
 }
 
 .officer-name {
   font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 0.3rem;
-  color: #1a52d1;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
 }
 
-.officer-year {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 0.5rem;
-}
-
+.officer-year,
 .officer-role {
-  font-size: 1rem;
-  color: #333;
+  font-size: 0.9rem;
+  color: #556b2f;
+  margin-bottom: 0.25rem;
+}
+
+/* View profile button */
+.view-profile-btn {
+  background-color: #8db600;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
   font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.view-profile-btn:hover {
+  background-color: #729900;
+}
+
+/* Responsive for iPhone SE and similar */
+@media (max-width: 375px) {
+  .officer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-icons {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
