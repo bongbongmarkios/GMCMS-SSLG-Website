@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSLG Officers Homepage</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="homepage-container">
+    <header>
+      <h1>Welcome to the SSLG Officers Website</h1>
+      <p>Your portal to connect with SSLG officers from all school years.</p>
+    </header>
+
+    <div class="homepage-buttons">
+      <a href="login.html" class="btn primary-btn">Login</a>
+      <a href="register.html" class="btn secondary-btn">Sign Up</a>
+    </div>
+  </div>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .homepage-container {
+      max-width: 600px;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .homepage-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border: none;
+      display: inline-block;
+    }
+
+    .primary-btn {
+      background-color: #2575fc;
+      color: white;
+    }
+
+    .primary-btn:hover {
+      background-color: #1a52d1;
+    }
+
+    .secondary-btn {
+      background-color: white;
+      color: #2575fc;
+      border: 2px solid #2575fc;
+    }
+
+    .secondary-btn:hover {
+      background-color: #e6f0ff;
+    }
+  </style>
+</body>
+</html>

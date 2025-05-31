@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSLG Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <h1 class="dashboard-header">Welcome to the SSLG Dashboard</h1>
+    <button id="logoutBtn">Logout</button>
+
+    <div class="officer-grid" id="officerGrid">
+      <!-- Officer profiles will be dynamically inserted here -->
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAIs1ArbMxkDB-5rh56GM4anqv4zN3OIA",
+      authDomain: "gmcms-g-website.firebaseapp.com",
+      projectId: "gmcms-g-website",
+      storageBucket: "gmcms-g-website.firebasestorage.app",
+      messagingSenderId: "759930294503",
+      appId: "1:759930294503:web:e544f9e04ca32397cfd242",
+      measurementId: "G-WXEZDVWBHK"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "login.html";
+      }
+    });
+
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.addEventListener("click", () => {
+      signOut(auth).then(() => {
+        window.location.href = "login.html";
+      }).catch((error) => {
+        alert("Logout failed: " + error.message);
+      });
+    });
+
+    // Sample data for SSLG officers
+    const officers = [
+      {
+        name: "Alice Johnson",
+        year: "2021-2022",
+        role: "President",
+        photo: "https://randomuser.me/api/portraits/women/44.jpg"
+      },
+      {
+        name: "Bob Smith",
+        year: "2022-2023",
+        role: "Vice President",
+        photo: "https://randomuser.me/api/portraits/men/46.jpg"
+      },
+      {
+        name: "Carol Lee",
+        year: "2023-2024",
+        role: "Secretary",
+        photo: "https://randomuser.me/api/portraits/women/65.jpg"
+      },
+      {
+        name: "David Kim",
+        year: "2021-2022",
+        role: "Treasurer",
+        photo: "https://randomuser.me/api/portraits/men/52.jpg"
+      }
+    ];
+
+    const officerGrid = document.getElementById("officerGrid");
+
+    function createOfficerCard(officer) {
+      const card = document.createElement("div");
+      card.className = "officer-card";
+
+      const img = document.createElement("img");
+      img.src = officer.photo;
+      img.alt = officer.name;
+      img.className = "officer-photo";
+
+      const name = document.createElement("div");
+      name.className = "officer-name";
+      name.textContent = officer.name;
+
+      const year = document.createElement("div");
+      year.className = "officer-year";
+      year.textContent = officer.year;
+
+      const role = document.createElement("div");
+      role.className = "officer-role";
+      role.textContent = officer.role;
+
+      card.appendChild(img);
+      card.appendChild(name);
+      card.appendChild(year);
+      card.appendChild(role);
+
+      return card;
+    }
+
+    officers.forEach(officer => {
+      const card = createOfficerCard(officer);
+      officerGrid.appendChild(card);
+    });
+  </script>
+</body>
+</html>

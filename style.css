@@ -1,0 +1,165 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: #333;
+}
+
+.form-container {
+  background: white;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 350px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+input {
+  padding: 12px 15px;
+  margin: 12px 0;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #2575fc;
+  outline: none;
+}
+
+button {
+  padding: 12px;
+  background-color: #2575fc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1a52d1;
+}
+
+a {
+  color: #2575fc;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Dashboard styles */
+.dashboard-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2575fc;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+/* Social login buttons */
+.social-login {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.social-btn {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.social-btn.google {
+  background-color: #db4437;
+}
+
+.social-btn.google:hover {
+  background-color: #a3362a;
+}
+
+.social-btn.facebook {
+  background-color: #3b5998;
+}
+
+.social-btn.facebook:hover {
+  background-color: #2d4373;
+}
+
+.officer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.officer-card {
+  background: #f7f9ff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(37, 117, 252, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.officer-card:hover {
+  transform: translateY(-5px);
+}
+
+.officer-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #2575fc;
+}
+
+.officer-name {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  color: #1a52d1;
+}
+
+.officer-year {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.officer-role {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+}

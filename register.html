@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register | SSLG Officers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h2>Create Account</h2>
+    <form id="registerForm">
+      <input type="text" id="username" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+      <button type="submit">Register</button>
+    </form>
+
+    <div class="social-login">
+      <p>Or sign up with:</p>
+      <button id="googleSignUp" class="social-btn google">Google</button>
+      <button id="facebookSignUp" class="social-btn facebook">Facebook</button>
+    </div>
+
+    <p>Already have an account? <a href="login.html">Login</a></p>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAIs1ArbMxkDB-5rh56GM4anqv4zN3OIA",
+      authDomain: "gmcms-g-website.firebaseapp.com",
+      projectId: "gmcms-g-website",
+      storageBucket: "gmcms-g-website.firebasestorage.app",
+      messagingSenderId: "759930294503",
+      appId: "1:759930294503:web:e544f9e04ca32397cfd242",
+      measurementId: "G-WXEZDVWBHK"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const googleProvider = new GoogleAuthProvider();
+    const facebookProvider = new FacebookAuthProvider();
+
+    document.getElementById("googleSignUp").addEventListener("click", () => {
+      signInWithPopup(auth, googleProvider)
+        .then((result) => {
+          alert("Google sign-up successful!");
+          window.location.href = "dashboard.html";
+        })
+        .catch((error) => {
+          alert("Google sign-up failed: " + error.message);
+        });
+    });
+
+    document.getElementById("facebookSignUp").addEventListener("click", () => {
+      signInWithPopup(auth, facebookProvider)
+        .then((result) => {
+          alert("Facebook sign-up successful!");
+          window.location.href = "dashboard.html";
+        })
+        .catch((error) => {
+          alert("Facebook sign-up failed: " + error.message);
+        });
+    });
+  </script>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>
